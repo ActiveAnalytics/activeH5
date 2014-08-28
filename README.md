@@ -6,6 +6,8 @@ activeH5 provides a set of tools to allow large data frames and matrices to be w
 
 With the release of this package open source, it is our intention to more actively maintain and update this. Our first priority is to make the read/write even faster and provide option for compressing the data as well as more user friendly features.
 
+You can visit our website on <http://www.active-analytics.com>.
+
 # Quick Intro
 
 Just a quick intro to the basic functions in this package:
