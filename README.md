@@ -8,6 +8,16 @@ With the release of this package open source, it is our intention to more active
 
 You can visit our website on <http://www.active-analytics.com>.
 
+## Installation
+
+The package can be installed directly from GitHub using the devtools <https://github.com/hadley/devtools> package:
+
+```
+require(devtools)
+install_github("ActiveAnalytics/activeH5")
+require(activeH5)
+```
+
 # Quick Intro
 
 Just a quick intro to the basic functions in this package:
