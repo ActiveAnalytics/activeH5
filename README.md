@@ -10,9 +10,9 @@ You can visit our website on <http://www.active-analytics.com>.
 
 ## Installation
 
-**Pre-requisite**: HDF5 serial version
+**Pre-requisite:** HDF5 serial version.
 
-OS: Linux (Ubuntu), not tested on Windows.
+**OS:** Linux (Ubuntu), not tested on Windows.
 
 The package can be installed directly from GitHub using the devtools <https://github.com/hadley/devtools> package:
 
