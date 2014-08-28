@@ -1,0 +1,26 @@
+Package: activeH5
+Type: Package
+Title: Easy to use API to read and write very large matrices and data frames to
+    disk and in memory in chunks
+Version: 0.0.1
+Date: 2014-08-28
+Author: Chibisi Chima-Okereke
+Maintainer: Chibisi Chima-Okereke <chibisi@activeanalytics.co.uk>
+Description: This package is written in C/C++ and uses R's reference classes to
+    provide an API to read and write large matrices and data frames to disk and
+    memory using chunking algorithms. The file format is based on HDF5 but uses
+    meta data to store the data frame structure. Any character columns are
+    converted to factors. On disk, the data itself is stored as numeric
+    matrices and on read-into R it is converted back to data frame.
+License: MIT
+Depends:
+    Rcpp (>= 0.11.2),R (>= 3.1.1), methods
+LinkingTo: Rcpp
+Collate:
+    'RcppExports.R'
+    'h5Classes.r'
+    'h5DF.r'
+    'h5MAT.r'
+    'h5MEMDF.r'
+    'h5MEMMAT.r'
+    'activeH5.r'

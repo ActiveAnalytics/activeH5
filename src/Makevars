@@ -1,0 +1,9 @@
+PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"`
+
+CXXFLAGS += -I/usr/include -L/usr/lib/x86_64-linux-gnu -std=c++0x -lhdf5 -lhdf5_cpp -lhdf5_hl -lhdf5_hl_cpp -lpthread -lz -ldl -lm
+PKG_LIBS += -I/usr/include -L/usr/lib/x86_64-linux-gnu -std=c++0x -lhdf5 -lhdf5_cpp -lhdf5_hl -lhdf5_hl_cpp -lpthread -lz -ldl -lm
+
+PKG_CPPFLAGS += -I../inst/include
+PKG_LIBS += $(RCPP_LDFLAGS)
+
+CXX_STD = CXX11

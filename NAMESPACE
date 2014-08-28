@@ -1,0 +1,2 @@
+useDynLib(activeH5)
+exportPattern("^[[:alpha:]]+")
