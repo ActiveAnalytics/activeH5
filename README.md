@@ -1,4 +1,4 @@
-# activeH5 is a package for storing/reading large data frames and matrices
+# activeH5 is a package for writing/reading large data frames and matrices in chunks
 
 ## Introduction
 
