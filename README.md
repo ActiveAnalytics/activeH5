@@ -45,6 +45,26 @@ Writing data to file ...
 Updating meta data on file ... 
 Appending data to file ... 
 
+# The names of the chunks
+> ir1$chunkNames
+[1] "ch1"  "ch2"  "ch3"  "ch4"  "ch5"  "ch6"  "ch7"  "ch8"  "ch9"  "ch10" "ch11" "ch12" "ch13" "ch14" "ch15"
+
+# Size of the chunks
+> ir1$chunkSize
+[1] 10
+
+# Names of the columns
+> ir1$colNames
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
+
+# Reading a chunk
+> ir1$readChunk("ch1")
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
 
 > ir1$readTable()
 Reading the data from H5 file ... 
@@ -60,6 +80,39 @@ H5 data read, now formatting the data ...
 8            5.0         3.4          1.5         0.2     setosa
 9            4.4         2.9          1.4         0.2     setosa
 10           4.9         3.1          1.5         0.1     setosa
+...
+
+# The meta data
+> ir1
+Reference class object of class "h5DF"
+Field "nChunks":
+[1] 15
+Field "chunkNames":
+ [1] "ch1"  "ch2"  "ch3"  "ch4"  "ch5"  "ch6"  "ch7"  "ch8"  "ch9"  "ch10" "ch11" "ch12" "ch13" "ch14" "ch15"
+Field "colNames":
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     
+Field "colClasses":
+Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+   "numeric"    "numeric"    "numeric"    "numeric"     "factor" 
+Field "nrows":
+[1] 150
+Field "ncols":
+[1] 5
+Field "filePath":
+[1] "iris.h5"
+Field "nfactors":
+[1] 1
+Field "factors":
+$Species
+[1] "setosa"     "versicolor" "virginica" 
+
+Field "chunkSize":
+[1] 10
+Field "MAT":
+     [,1]
+[1,]    0
+Field "oldNChunks":
+[1] 0
 ```
 
 For more information:
