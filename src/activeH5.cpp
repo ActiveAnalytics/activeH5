@@ -968,11 +968,10 @@ NumericMatrix h5ReadMemMAT(SEXP ptr)
 //'@title Function to read a data frame that has been stored in memory when given the external pointer
 //'
 //'@param ptr externalptr to data frame stored in memory
-//'@return the data frame that is helpd at the externalptr
+//'@return the data frame that is held at the externalptr
 // [[Rcpp::export]]
 DataFrame h5ReadMemDF(SEXP ptr)
 {
   XPtr<DataFrame> out(ptr);
   return *out;
 }
-

@@ -429,7 +429,7 @@ h5DF$methods(readChunks = function(chunks){
 
 # Method: readTable()
 h5DF$methods(readTable = function(){
-  ' The readTable() method reads all the chunks in the h5DF object and returns them aas a single data frame.
+  ' The readTable() method reads all the chunks in the h5DF object and returns them as a single data frame.
   '
   cat("Reading the data from H5 file ...", "\n")
   df <- do.call(rbind, lapply(chunkNames, h5ReadDoubleMat, filePath = filePath))

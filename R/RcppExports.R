@@ -241,7 +241,7 @@ h5ReadMemMAT <- function(ptr) {
 #'@title Function to read a data frame that has been stored in memory when given the external pointer
 #'
 #'@param ptr externalptr to data frame stored in memory
-#'@return the data frame that is helpd at the externalptr
+#'@return the data frame that is held at the externalptr
 h5ReadMemDF <- function(ptr) {
     .Call('activeH5_h5ReadMemDF', PACKAGE = 'activeH5', ptr)
 }

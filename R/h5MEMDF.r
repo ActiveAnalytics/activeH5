@@ -134,7 +134,7 @@ h5MEMDF$methods(createH5MEMDF = function(df, chunkSize, ...){
 #' ir1 # The details of the object
 #' ir1$readChunk(1) # read chunk number 3
 #' ir1$append(iris[101:150,]) # appending data
-newH5MEMDF <- function(df, chunkSize, ...)
+newH5MEMDF <- function(df, chunkSize = 50000, ...)
 {
   obj <- h5MEMDF$new()
   obj$createH5MEMDF(df, chunkSize, ...)
@@ -232,6 +232,45 @@ h5MEMDF$methods(readChunk = function(chunkNum){
   return(h5ReadMemDF(ptrs[[chunkNum]]))
 })
 
+# Method: readTable()
+h5MEMDF$methods(readTable = function(){
+  ' The readTable() method allows the user to either read a list of chunks as
+    a data frame from memory or read the whole data as a table
+    @param: chunkNums the vector of chunks to be read back to R.
+    Usage:
+    $readTable((numeric) (chunkNums))
+  '
+  # empty output list object
+  output <- replicate(length(colNames), vector(mode = "numeric", 
+                                               length = nrows), simplify = F)
+  names(output) <- colNames
+  startRow <- 1 # the row that were are at
+  for(i in 1:nChunks)
+  {
+    temp <- readChunk(i)
+    nRowsChunk <- nrow(temp) # The number of rows in this chunk
+    endRow <- startRow + nRowsChunk - 1
+    # Inserts into respective positions in columns
+    for(j in 1:length(colNames))
+    {
+      output[[j]][startRow:endRow] <- temp[[j]]
+    }
+    startRow <- startRow + nRowsChunk
+  }
+  
+  output <- do.call(cbind.data.frame, output)
+  
+  # Adjustments for the factors
+  if(nfactors > 0)
+  {
+    for(k in names(factors))
+    {
+      output[[k]] <- createFactor(output[[k]], levels(temp[[k]][1]))
+    }
+  }
+  
+  return(output)
+})
 
 #------------------------------------------------------------------------------------------------
 # Write to H5 file
@@ -298,7 +337,7 @@ h5MEMDF$methods(createH5DF = function(filePath){
 #------------------------------------------------------------------------------------------------
 # Method: memorize()
 h5DF$methods(memorize = function(){
-  ' The memoize() method takes a h5DF object and puts all DF chunks into memory 
+  ' The memorize() method takes a h5DF object and puts all DF chunks into memory 
     then returns a h5MEMDF object.
     Usage:
     $memorize()
