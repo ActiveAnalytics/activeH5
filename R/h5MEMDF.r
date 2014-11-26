@@ -54,7 +54,7 @@ h5MEMDF$methods(createMetaData = function(df){
   }
   
   colNames <<- colnames(df)
-  colClasses <<- sapply(df, class)
+  colClasses <<- unlist(sapply(df, class))
   
   cat("Converting character to factors", "\n")
   colClasses[colClasses == "character"] <<- "factor"
