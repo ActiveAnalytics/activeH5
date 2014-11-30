@@ -79,7 +79,7 @@ h5DF$methods(createMetaData = function(DF){
   
   DF <- as.list(DF)
   colNames <<- names(DF)
-  colClasses <<- unlist(sapply(DF, class))
+  colClasses <<- unlist(lapply(DF, function(x)class(x)[1]))
   
   cat("Converting character to factors", "\n")
   colClasses[colClasses == "character"] <<- "factor"
